@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Bangladesh Data</title>
+    <script src="bangladesh-data.js"></script>
+</head>
+<body>
+    <h1>Test Bangladesh Data</h1>
+    <div id="output"></div>
+    
+    <script>
+        const output = document.getElementById('output');
+        const districts = getDistricts();
+        const upazilas = bangladeshData.upazilas;
+        
+        output.innerHTML = `
+            <h2>Districts: ${districts.length}</h2>
+            <ul>
+                ${districts.map(d => `<li>${d.name} - ${d.bn_name}</li>`).join('')}
+            </ul>
+            
+            <h2>Upazilas: ${upazilas.length}</h2>
+            <ul>
+                ${upazilas.map(u => `<li>${u.name} - ${u.bn_name} (District: ${u.district_id})</li>`).join('')}
+            </ul>
+        `;
+    </script>
+</body>
+</html>
